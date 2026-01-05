@@ -11,9 +11,14 @@ import { ActionDrawer } from "./ActionDrawer";
 interface TopBarProps {
   currency: Currency;
   onCurrencyChange: (currency: Currency) => void;
+  onTransactionAdded?: () => void;
 }
 
-export function TopBar({ currency, onCurrencyChange }: TopBarProps) {
+export function TopBar({
+  currency,
+  onCurrencyChange,
+  onTransactionAdded,
+}: TopBarProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
@@ -34,7 +39,11 @@ export function TopBar({ currency, onCurrencyChange }: TopBarProps) {
         </div>
       </header>
 
-      <ActionDrawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen} />
+      <ActionDrawer
+        open={isDrawerOpen}
+        onOpenChange={setIsDrawerOpen}
+        onTransactionAdded={onTransactionAdded}
+      />
     </>
   );
 }
