@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
+import { PortfoliosProvider } from "@/contexts/PortfoliosContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl">
       <body className="antialiased">
-        {children}
-        <Toaster position="top-center" />
+        <PortfoliosProvider>
+          {children}
+          <Toaster position="top-center" />
+        </PortfoliosProvider>
       </body>
     </html>
   );
