@@ -1,0 +1,26 @@
+You are working on FINBAR v2 (Next.js App Router + TypeScript + Tailwind + shadcn/ui + Supabase).
+
+CORE PRINCIPLES:
+1. RTL + Hebrew UI - all user-facing text in Hebrew
+2. IBKR-compatible TWR calculations (BOD formula)
+3. Single source of truth: transactions table
+4. Smart caching to avoid API credit waste
+
+LAYOUT RULES:
+- Root layout: <html lang="he" dir="rtl">
+- All text aligns RIGHT by default
+- For LTR content (emails, numbers): className="text-right [direction:ltr]"
+
+TWR FORMULA (IBKR BOD):
+R = EMV / (BMV + CF) - 1
+- CF = deposits/withdrawals only
+- transfers, buys, sells, dividends = NOT cash flows
+
+TECH STACK:
+- Next.js 15 App Router
+- TypeScript strict
+- Tailwind CSS
+- shadcn/ui components
+- Supabase (auth + database)
+- TwelveData API (prices)
+- lightweight-charts (charts)
